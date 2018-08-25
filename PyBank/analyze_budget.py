@@ -47,14 +47,65 @@ with open(csvpath, newline='') as csvfile:
 print("Average Change: " + str(plchange/(rownum - 1)))
 #print (str(rownum))
 
+currentvalue = 0
+previousvalue =  0
+maxvalue = 0 
+rownum = 0
+maxvaluemonth = ""
 
-     
+with open(csvpath, newline='') as csvfile:
+    csvreader = csv.reader(csvfile, delimiter=',')
+    csv_header = next(csvreader)
+    for row in csvreader:
+        currentvalue = int(row[1])
+        if (rownum ==0):
+            previousvalue = currentvalue
+        else:
+            diff = currentvalue - previousvalue
+            previousvalue = currentvalue
 
-#The total number of months included in the dataset
+            if (diff > 0):
+                if (maxvalue == 0) :
+                    maxvalue = diff 
+                    maxvaluemonth = (row[0])
+                else:
+                    if (diff > maxvalue):
+                        maxvalue = diff
+                        maxvaluemonth = (row[0])
 
-#The total net amount of "Profit/Losses" over the entire period
+        rownum += 1
+print("Greatest Increase: " + (maxvaluemonth) + " ($" + str(maxvalue) + ")")
+        
+currentvalue = 0
+previousvalue =  0
+minvalue = 0 
+rownum = 0
+minvaluemonth = ""
 
-#The average change in "Profit/Losses" between months over the entire period
+with open(csvpath, newline='') as csvfile:
+    csvreader = csv.reader(csvfile, delimiter=',')
+    csv_header = next(csvreader)
+    for row in csvreader:
+        currentvalue = int(row[1])
+        if (rownum ==0):
+            previousvalue = currentvalue
+        else:
+            diff = currentvalue - previousvalue
+            previousvalue = currentvalue
+
+            if (diff < 0):
+                if (minvalue == 0) :
+                    minvalue = diff 
+                    minvaluemonth = (row[0])
+                else:
+                    if (diff < minvalue):
+                        minvalue = diff
+                        minvaluemonth = (row[0])
+
+        rownum += 1
+print("Greatest Decrease: " + (minvaluemonth) + " ($" + str(minvalue) + ")")    
+
+
 
 #The greatest increase in profits (date and amount) over the entire period
 
