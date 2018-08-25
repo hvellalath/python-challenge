@@ -113,3 +113,11 @@ print("Average Change: " + str(plchange/(rownum - 1)))
 print("Greatest Increase: " + (maxvaluemonth) + " ($" + str(maxvalue) + ")")
 print("Greatest Decrease: " + (minvaluemonth) + " ($" + str(minvalue) + ")")
 
+with open("BudgetAnalysis.txt" , "w") as text_file:
+    text_file.write("Financial Analysis: ")
+    text_file.write("---------------------")
+    text_file.write ("Total Months: " + str(counter))
+    text_file.write("Total: " + str(totalnetvalue))
+    text_file.write("Average Change: " + str(plchange/(rownum - 1)))
+    text_file.write("Greatest Increase: " + (maxvaluemonth) + " ($" + str(maxvalue) + ")")
+    text_file.write("Greatest Decrease: " + (minvaluemonth) + " ($" + str(minvalue) + ")")
