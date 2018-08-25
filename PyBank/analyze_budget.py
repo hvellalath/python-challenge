@@ -105,8 +105,11 @@ with open(csvpath, newline='') as csvfile:
         rownum += 1
 print("Greatest Decrease: " + (minvaluemonth) + " ($" + str(minvalue) + ")")    
 
+print("Financial Analysis: ")
+print("---------------------")
+print ("Total Months: " + str(counter))
+print("Total: " + str(totalnetvalue))
+print("Average Change: " + str(plchange/(rownum - 1)))
+print("Greatest Increase: " + (maxvaluemonth) + " ($" + str(maxvalue) + ")")
+print("Greatest Decrease: " + (minvaluemonth) + " ($" + str(minvalue) + ")")
 
-
-#The greatest increase in profits (date and amount) over the entire period
-
-#The greatest decrease in losses (date and amount) over the entire period
